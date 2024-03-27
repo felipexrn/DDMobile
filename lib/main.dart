@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Busca());
 }
 
-class MyApp extends StatelessWidget {
+class Busca extends StatelessWidget {
   // Degradê linear
   static const LinearGradient myGradient = LinearGradient(
     begin: Alignment.topCenter,
