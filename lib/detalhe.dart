@@ -1,12 +1,37 @@
 import 'package:flutter/material.dart';
 import 'info.dart';
+import 'detalheEdicao.dart';
 
-class Detalhe extends StatelessWidget {
+class Detalhe extends StatefulWidget {
+  @override
+  DetalheEstado createState() => DetalheEstado();
+}
+
+class DetalheEstado extends State<Detalhe> {
+  String acao = "Alfabetização";
+  String dia = "02/08/2024 Segunda";
+  String hora = "15:45";
+  String local = "Centro Comunitário Alvares Torres";
+  String endereco = "Rua Josefina Albuquerque, 405, Carreiras";
+  String cidade = "Natal";
+
+  void atualizaEstado(String novoAcao, String novoDia, String novoHora,
+      String novoLocal, String novoEndereco, String novaCidade) {
+    setState(() {
+      acao = novoAcao;
+      dia = novoDia;
+      hora = novoHora;
+      local = novoLocal;
+      endereco = novoEndereco;
+      cidade = novaCidade;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('qajuda'),
+        title: const Text('Detalhes da Ação'),
         backgroundColor: Color(0xFFff6f13),
       ),
       body: Container(
@@ -43,7 +68,7 @@ class Detalhe extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      'Alfabetização',
+                      acao,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -72,51 +97,86 @@ class Detalhe extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dia:  02/08/2024 Segunda',
+                      'Dia: $dia',
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      'Hora: 15:45',
+                      'Hora: $hora',
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      'Local: Centro Comunitário Alvares Torres',
+                      'Local: $local',
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      'Endereço: Rua Josefina Albuquerque, 405, Carreiras',
+                      'Endereço: $endereco',
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      'Cidade: Natal',
+                      'Cidade: $cidade',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20), // Espaço entre texto e botão
+              SizedBox(height: 20), // Espaço entre texto e botões
               Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Info()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF0d0FFF),
-                  ),
-                  child: Text(
-                    'Mais Informações',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Info(titulo: acao),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF0d0FFF),
+                      ),
+                      child: Text(
+                        'Mais Informações',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 10), // Espaço entre os botões
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetalheEdicao(
+                              acao: acao,
+                              dia: dia,
+                              hora: hora,
+                              local: local,
+                              endereco: endereco,
+                              cidade: cidade,
+                              onSave: atualizaEstado,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF0d0FFF),
+                      ),
+                      child: Text(
+                        'Editar Detalhes',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
-                  height: 20), // Espaço entre botão e borda inferior da tela
+                  height: 20), // Espaço entre botões e borda inferior da tela
             ],
           ),
         ),

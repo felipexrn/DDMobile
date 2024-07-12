@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Info extends StatelessWidget {
+  final String titulo;
+
+  Info({required this.titulo});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('qajuda'),
+        title: Text('Informações'),
         backgroundColor: Color(0xffb8b8b8),
       ),
       backgroundColor: Color(0xffb8b8b8),
@@ -34,7 +38,7 @@ class Info extends StatelessWidget {
             ),
             SizedBox(height: 5.0),
             Text(
-              'Alfabetização',
+              titulo,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20.0,
