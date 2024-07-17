@@ -12,12 +12,12 @@ class Busca extends StatelessWidget {
 
   // Lista de URLs de imagens distintas
   static const List<String> imageUrls = [
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/alfabetizacao.jpg',
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/animais.jpg',
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/limpeza-praia2.jpg',
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/plantacao.jpg',
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/roupa.jpg',
-    'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/alfabetizacao-pcd.jpg',
+    'imagens/alfabetizacao.jpg',
+    'imagens/animais.jpg',
+    'imagens/limpeza-praia2.jpg',
+    'imagens/plantacao.jpg',
+    'imagens/roupa.jpg',
+    'imagens/ledor.jpg',
   ];
 
   // Lista de legendas de imagens distintas
@@ -47,8 +47,8 @@ class Busca extends StatelessWidget {
               ),
               SizedBox(
                 height: 150,
-                child: Image.network(
-                  'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/logoqajuda.png',
+                child: Image.asset(
+                  'imagens/logoqajuda.png',
                 ),
               ),
               SizedBox(
@@ -89,7 +89,7 @@ class Busca extends StatelessWidget {
                             children: <Widget>[
                               SizedBox(
                                 height: 100,
-                                child: Image.network(
+                                child: Image.asset(
                                   // Usando index % imageUrls.length para garantir que o índice permaneça dentro dos limites da lista
                                   imageUrls[index % imageUrls.length],
                                   width: 100,

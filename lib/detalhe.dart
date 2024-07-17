@@ -60,8 +60,7 @@ class DetalheEstado extends State<Detalhe> {
                         height: 50,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/logoqajuda.png'),
+                            image: AssetImage('imagens/logoqajuda.png'),
                           ),
                         ),
                       ),
@@ -84,8 +83,7 @@ class DetalheEstado extends State<Detalhe> {
                 height: MediaQuery.of(context).size.height * 0.4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://raw.githubusercontent.com/felipexrn/DDM/main/imagens/alfabetizacao.jpg'),
+                    image: AssetImage('imagens/alfabetizacao.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
