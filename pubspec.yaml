@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: 0.13.0
 
 dev_dependencies:
   flutter_test:
@@ -17,9 +18,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  assets:
+    - imagens/alfabetizacao.jpg
+    - imagens/animais.jpg
+    - imagens/limpeza-praia2.jpg
+    - imagens/plantacao.jpg
+    - imagens/roupa.jpg
+    - imagens/ledor.jpg
+    - imagens/logoqajuda.png
   # fonts:
   #   - family: Schyler
   #     fonts:
